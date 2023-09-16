@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расчёт смены 2\2</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
-    <form>
-        <input name="date_first" type="date" placeholder="введите дату первой былижайшей смены">
-        <input name="date_second" type="date" placeholder="введите дату второй былижайшей смены">
-        <input type="submit">
+    <form id="forma">
+        <input name="date-first" type="date" id="date-first" >
+        <input name="date-second" type="date" id="date-second" >
+        <input type="date" name="start-diapason" id="start-diapason" value="2023-09-18">
+        <input type="date" name="finish-diapason" id="finish-diapason" value="2023-09-24">
+        <input type="submit" id="calculate-schedule">
     </form>
     
 </body>
