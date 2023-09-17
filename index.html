@@ -8,13 +8,15 @@
     <script src="scripts/script.js" defer></script>
 </head>
 <body>
-    <form id="forma">
-        <input name="date-first" type="date" id="date-first" >
-        <input name="date-second" type="date" id="date-second" >
-        <input type="date" name="start-diapason" id="start-diapason" value="2023-09-18">
-        <input type="date" name="finish-diapason" id="finish-diapason" value="2023-09-24">
-        <input type="submit" id="calculate-schedule">
-    </form>
-    
+    <div class="wrapper">
+        <!-- <form id="forma"> -->
+        <div> <p>Выберите дату <u><strong>первого дня</strong></u> любой своей смены</p> <input name="date-first" type="date" id="date-first"  value="2023-09-20" ></div>
+        <div><p>Выберите дату <u><strong>первого дня</strong></u> интересующего диапазона</p><input type="date" name="start-diapason" id="start-diapason" value="2023-09-18"></div>
+        <div><p>Выберите дату <u><strong>финального дня</strong></u>интересующего диапазона</p><input type="date" name="finish-diapason" id="finish-diapason" value="2023-09-24"></div>
+        <div class="btn"><input class="button" type="button" id="calculate-schedule" value="Рассчитать"></div>
+        <!-- </form> -->
+        <div  id="for-test"></div>
+        <div id="schedule-out"></div>
+    </div>
 </body>
 </html>
