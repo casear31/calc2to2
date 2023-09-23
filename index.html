@@ -10,13 +10,43 @@
 <body>
     <div class="wrapper">
         <!-- <form id="forma"> -->
-        <div> <p>Выберите дату <u><strong>первого дня</strong></u> любой своей смены</p> <input name="date-first" type="date" id="date-first"  value="2023-09-20" ></div>
-        <div><p>Выберите дату <u><strong>первого дня</strong></u> интересующего диапазона</p><input type="date" name="start-diapason" id="start-diapason" value="2023-09-18"></div>
-        <div><p>Выберите дату <u><strong>финального дня</strong></u>интересующего диапазона</p><input type="date" name="finish-diapason" id="finish-diapason" value="2023-09-24"></div>
-        <div class="btn"><input class="button" type="button" id="calculate-schedule" value="Рассчитать"></div>
+        <div>
+            <h2 class="comrad">ТОВАРИЩ!!!</h2>
+            <div class="select-date-prompt">
+                <h3 class="first-point">Выбери дату</h3>
+                <h2 class="second-point"><u><strong>первого дня</strong></u></h2>
+                <h3 class="third-point">любой своей смены</h3>
+            </div>
+            <div class="div-input">
+                <input name="date-first" type="date" id="date-first"  value="2023-09-20" >
+            </div>
+        </div>
+        <div>
+            <div class="select-date-prompt">
+                <h3 class="first-point">Выбери дату</h3>
+                <h2 class="second-point"><u><strong>первого дня</strong></u></h2>
+                <h3 class="third-point">интересующего диапазона</h3>
+            </div>
+            <div class="div-input">
+                <input type="date" name="start-diapason" id="start-diapason" value="2023-09-18">
+            </div>
+        </div>
+        <div>
+            <div class="select-date-prompt">
+                <h3 class="first-point">Выбери дату</h3>
+                <h2 class="second-point"><u><strong>финального дня</strong></u></h2> 
+                <h3 class="third-point">интересующего диапазона</h3>
+            </div>
+            <div class="div-input">
+                <input type="date" name="finish-diapason" id="finish-diapason" value="2023-09-24">
+            </div>
+        </div>
+        <div class="btn">
+            <input class="button" type="button" id="calculate-schedule" value="Рассчитать">
+        </div>
         <!-- </form> -->
         <div  id="for-test"></div>
-        <div id="schedule-out"></div>
+        <div id="schedule-out" style="background-color: rgb(192, 2, 12);color: #fff"></div>
     </div>
 </body>
 </html>

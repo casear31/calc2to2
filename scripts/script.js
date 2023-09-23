@@ -18,6 +18,8 @@ calculateScheduleBtn.addEventListener('click', () => {
     const diapasonEnd = document.getElementById("finish-diapason")
     let scheduleOut  = document.getElementById("schedule-out")
     
+    scheduleOut.innerHTML = ""
+
     const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
    
 

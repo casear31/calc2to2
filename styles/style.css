@@ -5,7 +5,13 @@
 }
 
 body {
-    background-color: rgb(128, 217, 245);
+    background-color: rgb(196, 45, 38);
+    height: 100%;
+    background-image: url(../img/nakovalnya.png);
+    background-size: auto;
+        /* background-size: 1659px 1000px; */
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 
@@ -13,7 +19,9 @@ body {
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    align-items:flex-start
+    align-items:center;
+
+    height: auto;
 }
 
 button {
@@ -24,26 +32,75 @@ button {
 
 .button {
     display: block;
-    background-color: rgb(29, 161, 242);
-    padding: 0 15px;
-    opacity: 0.5;
+    width: 100%;
+    background-color:rgb(224, 5, 5); 
+    padding: 10px 35px 10px 45px;
+        /* padding: 10px 35px 10px auto; */
+    opacity: 0.9;
     border-radius: 9999px;
     height: 40px;
-    font-size: 15px;
+    font-size: 1.5em;
     font-weight: 700;
     color: #ffffff;
-    margin: 10px 0 10px auto;
+    margin: 15px 15px;
     /* background-color: transparent; */
     border: none;
     cursor: pointer;
 }
 
 input[type="date"]{
-    background-color: aqua;
-    color:
+    background-color: rgb(192, 2, 12);
+    color: #fff;
     border: none;
     border-radius: 9999px;
-    padding: 5px 15px;
-    opacity: 0.5;
+    opacity: 0.9;
+    font-size: 1.5em;
+    padding: 10px 35px;
+}
+
+.div-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 35px;
+}
+
+.select-date-prompt {
+    color: #fff;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.first-point {
+
+}
+
+.second-point {
+    margin-left: 30px;
+}
+
+.third-point {
+    margin-left: 60px;
+}
+
+.comrad {
+    color: #fff;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+}
+
+.schedule-out {
+    background-color: rgb(192, 2, 12);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+
 }
 
