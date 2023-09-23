@@ -21,7 +21,8 @@ calculateScheduleBtn.addEventListener('click', () => {
     scheduleOut.innerHTML = ""
 
     const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
-   
+    const weekLong = 7 * 86400000
+        
 
     //console.log(diapasonBegin.value.isValid(), diapasonEnd.value.isValid())
 
@@ -36,12 +37,43 @@ calculateScheduleBtn.addEventListener('click', () => {
     let rangeStart =  Date.parse(diapasonBegin.value)
     let rangeFinish = Date.parse(diapasonEnd.value) + 86400000
 
+    let startOfWeek;
+    let endOfWeek;
+
+    for (let i = rangeStart; i >= i - (weekLong); i = i - 86400000) {
+        let curI = new Date(i)
+        if (curI.getDay() == 1) {
+            startOfWeek = i;
+            break;
+        }
+    }
+
+        for (let i = rangeFinish; i <= i + (weekLong); i = i + 86400000) {
+        let curI = new Date(i)
+        if (curI.getDay() == 0) {
+            endOfWeek = i;
+            break;
+        }
+    }
+
+    let startOfWeekDay = new Date(startOfWeek);
+    let endOfWeekDay = new Date(endOfWeek);
+
+    console.log(weekLong / 86400000)
+    console.log(startOfWeekDay.getDay())
+    console.log(endOfWeekDay.getDay())
+
+
+    console.log('weeks: ' + (endOfWeek - startOfWeek + 86400000) / weekLong)
+
+
+
     let rangeBetween = (rangeFinish - rangeStart) 
     
     forTest.innerHTML = "Дней в выбранном диапазоне: " + (rangeBetween / 86400000)
     //forTest.innerHTML += new Date(rangeBetween).toISOString().subStr(0,10) + </br>
 
-    for (let i = firstDateOfShift; i <= rangeFinish; i = i + (86400000 * 4 )) {
+    for (let i = firstDateOfShift; i <= endOfWeek; i = i + (86400000 * 4 )) {
         let secondShift = i + 86400000
         if (i >= rangeStart || secondShift >= rangeStart) {
             let firstSh = new Date(i)
