@@ -16,9 +16,10 @@ calculateScheduleBtn.addEventListener('click', () => {
     // const secondDate = document.getElementById("date-second")
     const diapasonBegin = document.getElementById("start-diapason")
     const diapasonEnd = document.getElementById("finish-diapason")
-    let scheduleOut  = document.getElementById("schedule-out")
+    let scheduleOut = document.getElementById("schedule-out")
+    let tbodyOut = document.getElementById("tbody-out")
     
-    scheduleOut.innerHTML = ""
+    // scheduleOut.innerHTML = ""
 
     const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
     const weekLong = 7 * 86400000
@@ -65,7 +66,30 @@ calculateScheduleBtn.addEventListener('click', () => {
 
 
     console.log('weeks: ' + (endOfWeek - startOfWeek + 86400000) / weekLong)
+    let countWeeks = (endOfWeek - startOfWeek + 86400000) / weekLong
+    console.log(countWeeks)
+    // for (let i = 0; i < countWeeks; i= i+1) {
+    //     tbodyOut.innerHTML += "<tr><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td></tr>"
+    // }
+    for (let i = 0; i < countWeeks; i= i + 1) {
+        // tbodyOut.innerHTML += `<tr class="rowOfTable" id="rowId${i}"></tr>`;
+        let tableRow = tbodyOut.appendChild(document.createElement("tr"))//.setAttribute("id", `#rowId${i}`);
+        tableRow.setAttribute("id", `rowId${i}`)
+        console.log(tableRow)
 
+        for (let j = 1; j < 8; j= j + 1){
+            // document.getElementById(`rowId${i}`).appendChild(document.createElement("td")).innerText = "yuhuuuu"
+            let tableCell = tableRow.appendChild(document.createElement("td"))
+            tableCell.setAttribute("id", `cellId${j}`)
+            document.querySelector(`#cellId${j}`).innerText = ""
+            // let tr = document.querySelector(`rowId${i}`).id //.appendChild("td").innerText = "yuhuuuu";
+            console.log(document.querySelector(`#cellId${j}`))
+            // console.log(tr)
+
+
+        }
+
+    }
 
 
     let rangeBetween = (rangeFinish - rangeStart) 
@@ -73,15 +97,20 @@ calculateScheduleBtn.addEventListener('click', () => {
     forTest.innerHTML = "Дней в выбранном диапазоне: " + (rangeBetween / 86400000)
     //forTest.innerHTML += new Date(rangeBetween).toISOString().subStr(0,10) + </br>
 
-    for (let i = firstDateOfShift; i <= endOfWeek; i = i + (86400000 * 4 )) {
+    for (let i = firstDateOfShift; i <= endOfWeek; i = i + (86400000 * 4)) {
+        
         let secondShift = i + 86400000
         if (i >= rangeStart || secondShift >= rangeStart) {
             let firstSh = new Date(i)
             let secondSh = new Date(secondShift)
-            scheduleOut.innerHTML += firstSh.toISOString().substr(0,10) + "  -  " + days[firstSh.getDay()] + "</br>"
-            scheduleOut.innerHTML += secondSh.toISOString().substr(0,10) + "  -  " + days[secondSh.getDay()]  + "</br>"
+            // scheduleOut.innerHTML += firstSh.toLocaleDateString('ru-RU') +  "  -  " + days[firstSh.getDay()] + "</br>"
+            // scheduleOut.innerHTML += secondSh.toLocaleDateString('ru-RU') +  "  -  " + days[secondSh.getDay()] + "</br>"
+            tbodyOut.innerHTML += firstSh.toLocaleDateString('ru-RU') +  "  -  " + days[firstSh.getDay()] + "</br>"
+            tbodyOut.innerHTML += secondSh.toLocaleDateString('ru-RU') +  "  -  " + days[secondSh.getDay()] + "</br>"
             //console.log(new Date(i).toISOString(), new Date(secondShift).toISOString())
-            }
+        } else {
+
+        }
         }
 
     console.log(rangeStart, rangeFinish, rangeBetween)
