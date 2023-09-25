@@ -129,3 +129,10 @@ td {
 }
 
 
+.tbody-out {
+    display: flex;
+    justify-content: end;
+    margin-left: 50px;
+    width: 750px;
+}
+
