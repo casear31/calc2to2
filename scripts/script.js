@@ -71,20 +71,35 @@ calculateScheduleBtn.addEventListener('click', () => {
     // for (let i = 0; i < countWeeks; i= i+1) {
     //     tbodyOut.innerHTML += "<tr><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td><td>Выходной</td></tr>"
     // }
-    for (let i = 0; i < countWeeks; i= i + 1) {
+    tbodyOut.innerHTML = "";
+
+    let cycleWeekStart = startOfWeekDay - 86400000;
+    for (let i = 0; i < countWeeks; i = i + 1) {
+        
+        //let cycleWeekend = cycleWeekStart + (7 * 86400000)
         // tbodyOut.innerHTML += `<tr class="rowOfTable" id="rowId${i}"></tr>`;
         let tableRow = tbodyOut.appendChild(document.createElement("tr"))//.setAttribute("id", `#rowId${i}`);
         tableRow.setAttribute("id", `rowId${i}`)
         console.log(tableRow)
+        let cycleWeekday = cycleWeekStart;
 
-        for (let j = 1; j < 8; j= j + 1){
+        for (let j = 1; j < 8; j = j + 1){
+            cycleWeekday = cycleWeekday + 86400000;
+            
+            let cycleWeekdayDate = new Date(cycleWeekday);
+
+            console.log(days[cycleWeekdayDate.getDay()])
             // document.getElementById(`rowId${i}`).appendChild(document.createElement("td")).innerText = "yuhuuuu"
             let tableCell = tableRow.appendChild(document.createElement("td"))
-            tableCell.setAttribute("id", `cellId${j}`)
-            document.querySelector(`#cellId${j}`).innerText = ""
+            tableCell.setAttribute("id", `cellId${cycleWeekday}`)
+            tableCell.style.color = "#000"
+            document.querySelector(`#cellId${cycleWeekday}`).innerHTML = `${cycleWeekdayDate.toLocaleDateString('ru-RU') }` + "</br>" + `<span  id="dayoffId${cycleWeekday}">Выходной</span>`
             // let tr = document.querySelector(`rowId${i}`).id //.appendChild("td").innerText = "yuhuuuu";
-            console.log(document.querySelector(`#cellId${j}`))
+            console.log(document.querySelector(`#cellId${cycleWeekday}`))
             // console.log(tr)
+            if (j == 7) {
+                cycleWeekStart = cycleWeekday
+            }
 
 
         }
@@ -103,17 +118,29 @@ calculateScheduleBtn.addEventListener('click', () => {
         if (i >= rangeStart || secondShift >= rangeStart) {
             let firstSh = new Date(i)
             let secondSh = new Date(secondShift)
+            frstCell = document.querySelector(`#cellId${i}`)
+            scndCell = document.querySelector(`#cellId${secondShift}`)
+            frstCell.style.backgroundColor = "rgb(192, 2, 12)";
+            scndCell.style.backgroundColor = "rgb(192, 2, 12)";
+            frstCell.style.color = "#fff";
+            scndCell.style.color = "#fff";
+
+
+            frstCellWorkDay = document.querySelector(`#dayoffId${i}`)
+            scndCellWorkDay = document.querySelector(`#dayoffId${secondShift}`)
+            frstCellWorkDay.innerHTML = '1-й рабочий'
+            scndCellWorkDay.innerHTML = '2-й рабочий'
             // scheduleOut.innerHTML += firstSh.toLocaleDateString('ru-RU') +  "  -  " + days[firstSh.getDay()] + "</br>"
             // scheduleOut.innerHTML += secondSh.toLocaleDateString('ru-RU') +  "  -  " + days[secondSh.getDay()] + "</br>"
-            tbodyOut.innerHTML += firstSh.toLocaleDateString('ru-RU') +  "  -  " + days[firstSh.getDay()] + "</br>"
-            tbodyOut.innerHTML += secondSh.toLocaleDateString('ru-RU') +  "  -  " + days[secondSh.getDay()] + "</br>"
+            // tbodyOut.innerHTML += firstSh.toLocaleDateString('ru-RU') +  "  -  " + days[firstSh.getDay()] + "</br>"
+            // tbodyOut.innerHTML += secondSh.toLocaleDateString('ru-RU') +  "  -  " + days[secondSh.getDay()] + "</br>"
             //console.log(new Date(i).toISOString(), new Date(secondShift).toISOString())
-        } else {
-
         }
         }
 
     console.log(rangeStart, rangeFinish, rangeBetween)
+
+    scheduleOut.style.visibility = "visible";
 
 })
 
