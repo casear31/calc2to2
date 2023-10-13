@@ -109,6 +109,7 @@ calculateScheduleBtn.addEventListener('click', () => {
 
     let rangeBetween = (rangeFinish - rangeStart) 
     
+    forTest.style.visibility = "visible";
     forTest.innerHTML = "Дней в выбранном диапазоне: " + (rangeBetween / 86400000)
     //forTest.innerHTML += new Date(rangeBetween).toISOString().subStr(0,10) + </br>
 
